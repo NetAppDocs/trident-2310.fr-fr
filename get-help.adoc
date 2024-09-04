@@ -73,21 +73,6 @@ link:https://docs.netapp.com/us-en/trident-2201/index.html["22.01"^]
  a| 
 link:https://docs.netapp.com/us-en/trident-2110/index.html["21.10"^]
 | -- | -- | Octobre 2024 
-
-
- a| 
-link:https://docs.netapp.com/us-en/trident-2107/index.html["21.07"^]
-| -- | -- | Juillet 2024 
-
-
- a| 
-link:https://netapp-trident.readthedocs.io/en/stable-v21.04/["21.04"^]
-| -- | -- | Avril 2024 
-
-
- a| 
-link:https://netapp-trident.readthedocs.io/en/stable-v21.01/["21.01"^]
-| -- | -- | Janvier 2024 
 |===
 
 NOTE: Versions antérieures à 21.07, redirection vers le site de documentation héritée.
