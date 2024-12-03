@@ -68,11 +68,6 @@ link:https://docs.netapp.com/us-en/trident-2204/index.html["22.04"^]
  a| 
 link:https://docs.netapp.com/us-en/trident-2201/index.html["22.01"^]
 | -- | Janvier 2024 | Janvier 2025 
-
-
- a| 
-link:https://docs.netapp.com/us-en/trident-2110/index.html["21.10"^]
-| -- | -- | Octobre 2024 
 |===
 
 NOTE: Versions antérieures à 21.07, redirection vers le site de documentation héritée.
