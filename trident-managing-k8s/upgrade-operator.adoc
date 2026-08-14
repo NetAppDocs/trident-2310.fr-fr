@@ -12,16 +12,17 @@ summary: 'Vous pouvez facilement mettre à niveau une installation Astra Trident
 
 
 [role="lead"]
-Vous pouvez mettre à niveau Astra Trident à l'aide de l'opérateur Trident manuellement ou à l'aide d'Helm. Vous pouvez effectuer la mise à niveau d'une installation d'opérateur Trident vers une autre installation d'opérateur Trident ou à partir d'un `tridentctl` Installation sur une version opérateur Trident. Révision link:upgrade-trident.html#select-an-upgrade-method["Sélectionnez une méthode de mise à niveau"] Avant de mettre à niveau l'installation d'un opérateur Trident.
+Vous pouvez mettre à niveau Astra Trident à l'aide de l'opérateur Trident, soit manuellement, soit à l'aide de Helm. Vous pouvez effectuer une mise à niveau d'une installation de l'opérateur Trident vers une autre installation de l'opérateur Trident, ou effectuer une mise à niveau d'une installation  `tridentctl` vers une version de l'opérateur Trident. Consultez link:upgrade-trident.html#step-3-select-an-upgrade-method["Sélectionnez une méthode de mise à niveau"] avant de mettre à niveau une installation de l'opérateur Trident.
 
 
 
+[[upgrade-a-manual-installation]]
 == Mettre à niveau une installation manuelle
 
 Vous pouvez effectuer une mise à niveau d'une installation d'opérateur Trident dont le périmètre est défini dans le cluster vers une autre installation d'opérateur Trident dont le périmètre est défini dans le cluster. Toutes les versions 21.01 et supérieures d'Astra Trident utilisent un opérateur à périmètre de cluster.
 
 
-NOTE: Pour effectuer la mise à niveau à partir d'Astra Trident qui a été installée à l'aide de l'opérateur dont le périmètre d'espace de noms est compris entre les versions 20.07 et 20.10, suivez les instructions de mise à niveau de link:../earlier-versions.html["votre version installée"] D'Astra Trident.
+NOTE: Pour mettre à niveau Astra Trident installé à l'aide de l'opérateur à portée d'espace de noms (versions 20.07 à 20.10), utilisez les instructions de mise à niveau pour votre version installée de Trident.
 
 .Description de la tâche
 Trident fournit un fichier bundle que vous pouvez utiliser pour installer l'opérateur et créer les objets associés pour votre version Kubernetes.
@@ -58,6 +59,7 @@ kubectl create -f 23.10.0/trident-installer/deploy/<bundle.yaml> -n trident
 
 
 
+[[upgrade-a-helm-installation]]
 == Mettre à niveau une installation Helm
 
 Vous pouvez mettre à niveau une installation d'Astra Trident Helm.
@@ -66,7 +68,7 @@ Vous pouvez mettre à niveau une installation d'Astra Trident Helm.
 WARNING: Lorsque vous mettez à niveau un cluster Kubernetes de 1.24 vers 1.25 ou version ultérieure sur lequel Astra Trident est installé, vous devez mettre à jour les valeurs.yaml pour les définir `excludePodSecurityPolicy` à `true` ou ajouter `--set excludePodSecurityPolicy=true` à la `helm upgrade` commande avant de pouvoir mettre à niveau le cluster.
 
 .Étapes
-. Si vous link:../trident-get-started/kubernetes-deploy-helm.html#deploy-the-trident-operator-and-install-astra-trident-using-helm["Installez Astra Trident à l'aide d'Helm - effectué"], vous pouvez utiliser `helm upgrade trident netapp-trident/trident-operator --version 23.10.0` pour mettre à niveau en une seule étape. Si vous n'avez pas ajouté le Helm repo ou si vous ne pouvez pas l'utiliser pour mettre à niveau :
+. Si vous link:../trident-install/kubernetes-deploy-helm.html#deploy-the-trident-operator-and-install-astra-trident-using-helm["Installez Astra Trident à l'aide d'Helm - effectué"] , vous pouvez utiliser  `helm upgrade trident netapp-trident/trident-operator --version 23.10.0` pour effectuer la mise à niveau en une seule étape. Si vous n'avez pas ajouté le dépôt Helm ou si vous ne pouvez pas l'utiliser pour effectuer la mise à niveau :
 +
 .. Téléchargez la dernière version d'Astra Trident sur le site link:https://github.com/NetApp/trident/releases/latest["La section _Assets_ sur GitHub"^].
 .. Utilisez le `helm upgrade` commande où `trident-operator-23.10.0.tgz` reflète la version vers laquelle vous souhaitez effectuer la mise à niveau.
@@ -86,12 +88,13 @@ NOTE: Si vous définissez des options personnalisées lors de l'installation ini
 
 
 
+[[upgrade-from-a-tridentctl-installation-to-trident-operator]]
 == Mise à niveau à partir d'un `tridentctl` Installation sur l'opérateur Trident
 
 Vous pouvez effectuer la mise à niveau vers la dernière version de l'opérateur Trident à partir d'un `tridentctl` installation. Les systèmes back-end et ESV existants seront automatiquement disponibles.
 
 
-NOTE: Avant de passer d'une méthode d'installation à l'autre, consultez link:../trident-get-started/kubernetes-deploy.html#moving-between-installation-methods["Passage d'une méthode d'installation à l'autre"]
+NOTE: Avant de changer de méthode d'installation, consultez link:../trident-install/kubernetes-deploy.html#moving-between-installation-methods["Passage d'une méthode d'installation à l'autre"]
 
 .Étapes
 . Téléchargez la dernière version d'Astra Trident.

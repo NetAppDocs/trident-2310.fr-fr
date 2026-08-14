@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: trident-get-started/kubernetes-deploy-tridentctl.html 
+permalink: trident-install/kubernetes-deploy-tridentctl.html 
 keywords: deploy, astra trident, methods, tridentctl, windows 
 summary: 'Vous pouvez installer Astra Trident à l"aide de `tridentctl`. Ce processus s"applique aux installations où les images de conteneur requises par Astra Trident sont stockées dans un registre privé ou non.' 
 ---
@@ -16,6 +16,7 @@ Vous pouvez installer Astra Trident à l'aide de `tridentctl`. Ce processus s'ap
 
 
 
+[[critical-information-about-astra-trident-23-10]]
 == Informations stratégiques sur Astra Trident 23.10
 
 *Vous devez lire les renseignements essentiels suivants sur Astra Trident.*
@@ -33,12 +34,13 @@ Utilisation d'une configuration sans chemins d'accès multiples ou de l'utilisat
 ====
 
 
+[[install-astra-trident-using-tridentctl]]
 == Installation d'Astra Trident à l'aide de `tridentctl`
 
-Révision link:../trident-get-started/kubernetes-deploy.html["présentation de l'installation"] pour vous assurer que les conditions préalables à l'installation sont respectées et que vous avez sélectionné l'option d'installation appropriée pour votre environnement.
+Vérifiez link:kubernetes-deploy.html["présentation de l'installation"] pour vous assurer que vous avez respecté les prérequis d'installation et sélectionné la bonne option d'installation pour votre environnement.
 
 .Avant de commencer
-Avant de commencer l'installation, connectez-vous à l'hôte Linux et vérifiez qu'il gère un travail. link:requirements.html["Cluster Kubernetes pris en charge"^] et que vous disposez des privilèges nécessaires.
+Avant de commencer l'installation, connectez-vous à l'hôte Linux et vérifiez qu'il gère un système fonctionnel, link:../trident-get-started/requirements.html["Cluster Kubernetes pris en charge"^] et que vous disposez des privilèges nécessaires.
 
 
 NOTE: Avec OpenShift, utilisez `oc` au lieu de `kubectl` dans tous les exemples qui suivent, et connectez-vous en tant que *system:admin* en premier lieu en cours d'exécution `oc login -u system:admin` ou `oc login -u kube-admin`.
@@ -69,6 +71,7 @@ kubectl run -i --tty ping --image=busybox --restart=Never --rm -- \
 ====
 
 
+[[step-1-download-the-trident-installer-package]]
 == Étape 1 : téléchargez le package du programme d'installation de Trident
 
 Le package du programme d'installation Astra Trident crée un pod Trident, configure les objets CRD utilisés pour maintenir son état et initialise les sidecars CSI pour effectuer des actions telles que le provisionnement et la connexion de volumes aux hôtes du cluster. Téléchargez et extrayez la dernière version du programme d'installation de Trident link:https://github.com/NetApp/trident/releases/latest["La section _Assets_ sur GitHub"^]. Mettez à jour _<trident-installer-XX.XX.X.tar.gz>_ dans l'exemple avec la version Trident Astra que vous avez sélectionnée.
@@ -81,6 +84,7 @@ cd trident-installer
 ----
 
 
+[[step-2-install-astra-trident]]
 == Étape 2 : installez Astra Trident
 
 Installez Astra Trident dans l'espace de noms souhaité en exécutant le `tridentctl install` commande. Vous pouvez ajouter des arguments supplémentaires pour spécifier l'emplacement du registre d'images.
@@ -134,12 +138,14 @@ INFO Trident installation succeeded.
 ----
 
 
+[[verify-the-installation]]
 == Vérifiez l'installation
 
 Vous pouvez vérifier votre installation à l'aide de l'état de création du pod ou `tridentctl`.
 
 
 
+[[using-pod-creation-status]]
 === Utilisation du statut de création du pod
 
 Vous pouvez vérifier que l'installation d'Astra Trident est terminée en consultant le statut des pods créés :
@@ -153,10 +159,11 @@ trident-controller-679648bd45-cv2mx   6/6     Running   0          5m29s
 trident-node-linux-vgc8n              2/2     Running   0          5m29s
 ----
 
-NOTE: Si le programme d'installation ne s'est pas terminé correctement ou `trident-controller-<generated id>` (`trident-csi-<generated id>` Dans les versions antérieures à 23.01) n'ont pas d'état *en cours d'exécution*, la plate-forme n'était pas installée. Utiliser `-d` à  link:../troubleshooting.html#troubleshooting-an-unsuccessful-trident-deployment-using-tridentctl["activer le mode débogage"] et de résoudre le problème.
+NOTE: Si l'installateur ne se termine pas correctement ou si  `trident-controller-<generated id>` (`trident-csi-<generated id>` dans les versions antérieures à 23.01 n'a pas le statut *Running*, la plateforme n'a pas été installée. Utilisez  `-d` pour link:../troubleshooting.html#unsuccessful-trident-deployment-using-tridentctl["activer le mode débogage"] et résoudre le problème.
 
 
 
+[[using-tridentctl]]
 === À l'aide de `tridentctl`
 
 Vous pouvez utiliser `tridentctl` Pour vérifier la version d'Astra Trident installée.
@@ -173,6 +180,7 @@ Vous pouvez utiliser `tridentctl` Pour vérifier la version d'Astra Trident inst
 ----
 
 
+[[sample-configurations]]
 == Exemples de configurations
 
 Les exemples suivants présentent des exemples de configuration pour l'installation d'Astra Trident à l'aide de `tridentctl`.
@@ -190,7 +198,7 @@ tridentctl install --windows -n trident
 .Forcer le détachement
 [%collapsible]
 ====
-Pour plus d'informations sur le détachement forcé, voir link:..trident-get-started/kubernetes-customize-deploy.html["Personnalisez l'installation de l'opérateur Trident"].
+Pour plus d'informations sur le détachement forcé, veuillez vous référer à link:kubernetes-customize-deploy.html["Personnalisez l'installation de l'opérateur Trident"].
 
 [listing]
 ----

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: trident-get-started/kubernetes-deploy-helm.html 
+permalink: trident-install/kubernetes-deploy-helm.html 
 keywords: deploy, astra trident, operator, helm, helm chart, configuration, values, standard, registry 
 summary: 'Vous pouvez déployer l"opérateur Trident et installer Astra Trident à l"aide de Helm. Ce processus s"applique aux installations dans lesquelles les images de conteneur requises par Astra Trident ne sont pas stockées dans un registre privé.' 
 ---
@@ -16,6 +16,7 @@ Vous pouvez déployer l'opérateur Trident et installer Astra Trident à l'aide 
 
 
 
+[[critical-information-about-astra-trident-23-10]]
 == Informations stratégiques sur Astra Trident 23.10
 
 *Vous devez lire les renseignements essentiels suivants sur Astra Trident.*
@@ -33,14 +34,15 @@ Utilisation d'une configuration sans chemins d'accès multiples ou de l'utilisat
 ====
 
 
+[[deploy-the-trident-operator-and-install-astra-trident-using-helm]]
 == Déployer l'opérateur Trident et installer Astra Trident à l'aide de Helm
 
 Avec Trident link:https://artifacthub.io/packages/helm/netapp-trident/trident-operator["Graphique Helm"^] Vous pouvez déployer l'opérateur Trident et installer Trident en une étape.
 
-Révision link:../trident-get-started/kubernetes-deploy.html["présentation de l'installation"] pour vous assurer que les conditions préalables à l'installation sont respectées et que vous avez sélectionné l'option d'installation appropriée pour votre environnement.
+Vérifiez link:kubernetes-deploy.html["présentation de l'installation"] pour vous assurer que vous avez respecté les prérequis d'installation et sélectionné la bonne option d'installation pour votre environnement.
 
 .Avant de commencer
-En plus du link:../trident-get-started/kubernetes-deploy.html#before-you-deploy["conditions préalables au déploiement"] dont vous avez besoin link:https://v3.helm.sh/["Version 3 de Helm"^].
+En plus de link:kubernetes-deploy.html#before-you-begin["conditions préalables au déploiement"] vous avez besoin de link:https://v3.helm.sh/["Version 3 de Helm"^].
 
 .Étapes
 . Ajout du référentiel Astra Trident Helm :
@@ -65,6 +67,7 @@ Vous pouvez utiliser `helm list` pour vérifier les détails de l'installation t
 
 
 
+[[pass-configuration-data-during-install]]
 == Transmettre les données de configuration pendant l'installation
 
 Il existe deux façons de passer les données de configuration au cours de l'installation :
@@ -91,6 +94,7 @@ helm install <name> netapp-trident/trident-operator --version 23.10.0  --create-
 ----
 
 
+[[configuration-options]]
 == Options de configuration
 
 Ce tableau et le `values.yaml` Le fichier, qui fait partie du graphique Helm, fournit la liste des clés et leurs valeurs par défaut.
@@ -209,6 +213,7 @@ Ce tableau et le `values.yaml` Le fichier, qui fait partie du graphique Helm, fo
 |===
 
 
+[[understanding-controller-pods-and-node-pods]]
 === Présentation des pods de contrôleur et des nœuds
 
 ASTRA Trident s'exécute comme un seul pod de contrôleur, plus un pod de nœud sur chaque nœud worker dans le cluster. Le pod de nœuds doit être exécuté sur n'importe quel hôte sur lequel vous souhaitez potentiellement monter un volume Astra Trident.

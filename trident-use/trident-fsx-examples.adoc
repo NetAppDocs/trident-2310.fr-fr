@@ -16,6 +16,7 @@ Découvrez les options de configuration back-end pour Amazon FSX pour ONTAP. Cet
 
 
 
+[[backend-configuration-options]]
 == Options de configuration du back-end
 
 Voir le tableau suivant pour les options de configuration du back-end :
@@ -136,6 +137,7 @@ Cette fonctionnalité requiert ONTAP 9.11.1 et versions ultérieures. En outre, 
 |===
 
 
+[[update-datalif-after-initial-configuration]]
 === Mise à jour `dataLIF` après la configuration initiale
 
 Vous pouvez modifier la LIF de données après la configuration initiale en exécutant la commande suivante pour fournir le nouveau fichier JSON back-end avec la LIF de données mise à jour.
@@ -149,6 +151,7 @@ NOTE: Si des demandes de volume persistant sont associées à un ou plusieurs po
 
 
 
+[[backend-configuration-options-for-provisioning-volumes]]
 == Options de configuration back-end pour les volumes de provisionnement
 
 Vous pouvez contrôler le provisionnement par défaut à l'aide de ces options dans `defaults` section de la configuration. Pour un exemple, voir les exemples de configuration ci-dessous.
@@ -192,9 +195,7 @@ Si NAE est activé sur le back-end, tous les volumes provisionnés dans Astra Tr
 Pour plus d'informations, se reporter à : link:../trident-reco/security-reco.html["Fonctionnement d'Astra Trident avec NVE et NAE"]. | `false` 
 
 
-| `luksEncryption` | Activez le cryptage LUKS. Reportez-vous à la section link:../trident-reco/security-reco.html#Use-Linux-Unified-Key-Setup-(LUKS)["Utiliser la configuration de clé unifiée Linux (LUKS)"].
-
-SAN uniquement. | « » 
+| `luksEncryption` | Activez le chiffrement LUKS. Consultez link:../trident-reco/security-luks.html["Utiliser la configuration de clé unifiée Linux (LUKS)"]. SAN uniquement. | « » 
 
 
 | `tieringPolicy` | Règle de hiérarchisation à utiliser	`none` | `snapshot-only` Pour la configuration SVM-DR antérieure à ONTAP 9.5 
@@ -215,6 +216,7 @@ La valeur par défaut de SMB est `ntfs`.
 |===
 
 
+[[example]]
 == Exemple
 
 À l'aide de `nasType`, `node-stage-secret-name`, et `node-stage-secret-namespace`, Vous pouvez spécifier un volume SMB et fournir les informations d'identification Active Directory requises. Les volumes SMB sont pris en charge à l'aide de `ontap-nas` conducteur uniquement.

@@ -16,6 +16,7 @@ Le https://github.com/NetApp/trident/releases["Pack d'installation Trident"^] in
 
 
 
+[[commands-and-global-flags]]
 == Commandes et indicateurs globaux
 
 Vous pouvez exécuter `tridentctl help` pour obtenir une liste des commandes disponibles pour `tridentctl` ou ajoutez le `--help` marquer n'importe quelle commande pour obtenir une liste d'options et d'indicateurs pour cette commande spécifique.
@@ -70,10 +71,12 @@ WARNING: Vous pouvez configurer l'interface REST de Trident pour écouter et uti
 ====
 
 
+[[command-options-and-flags]]
 == Options et indicateurs de commande
 
 
 
+[[create]]
 === création
 
 Utilisez le `create` Commande d'ajout d'une ressource à Astra Trident.
@@ -85,6 +88,7 @@ Options:: `backend`: Ajouter un backend à Astra Trident.
 
 
 
+[[delete]]
 === supprimer
 
 Utilisez le `delete` Commande de supprimer une ou plusieurs ressources d'Astra Trident.
@@ -99,6 +103,7 @@ Options:: `backend`: Supprimer un ou plusieurs systèmes back-end de stockage d'
 
 
 
+[[get]]
 === obtenez
 
 Utilisez le `get` Commander pour obtenir une ou plusieurs ressources d'Astra Trident.
@@ -116,6 +121,7 @@ Alarmes:: `-h`, `--help`: Aide pour les volumes.
 
 
 
+[[images]]
 === images
 
 Utiliser `images` Drapeaux pour imprimer un tableau des images de conteneur dont Astra Trident a besoin.
@@ -128,6 +134,7 @@ Alarmes:: `-h`, `--help`: Aide pour les images.
 
 
 
+[[import-volume]]
 === importer le volume
 
 Utilisez le `import volume` Commande permettant d'importer un volume existant vers Astra Trident.
@@ -142,6 +149,7 @@ Alarmes:: `-f`, `--filename string`: Chemin vers le fichier PVC YAML ou JSON.
 
 
 
+[[install]]
 === installer
 
 Utilisez le `install` Drapeaux pour l'installation d'Astra Trident.
@@ -169,6 +177,7 @@ Alarmes:: `--autosupport-image string`: Image conteneur pour AutoSupport Telemet
 
 
 
+[[logs]]
 === journaux
 
 Utiliser `logs` Drapeaux pour imprimer les journaux à partir d'Astra Trident.
@@ -185,6 +194,7 @@ Alarmes:: `-a`, `--archive`: Créez une archive de support avec tous les journau
 
 
 
+[[send]]
 === envoyer
 
 Utilisez le `send` Commande permettant d'envoyer une ressource à Astra Trident.
@@ -196,6 +206,7 @@ Options:: `autosupport`: Envoyez une archive AutoSupport à NetApp.
 
 
 
+[[uninstall]]
 === désinstaller
 
 Utiliser `uninstall` Drapeaux pour désinstaller Astra Trident.
@@ -208,6 +219,7 @@ Alarmes:: `-h, --help`: Aide pour désinstaller.
 
 
 
+[[update]]
 === mise à jour
 
 Utilisez le `update` Commande permettant de modifier une ressource dans Astra Trident.
@@ -219,6 +231,7 @@ Options:: `backend`: Mettre à jour un backend dans Astra Trident.
 
 
 
+[[update-backend-state]]
 === mettre à jour l'état back-end
 
 Utilisez le `update backend state` pour suspendre ou reprendre les opérations back-end.
@@ -238,6 +251,7 @@ Alarmes:: `-h`, `--help`: Aide pour l'état back-end.
 
 
 
+[[version]]
 === version
 
 Utiliser `version` indicateurs pour imprimer la version de `tridentctl` Et le service exécutant Trident.

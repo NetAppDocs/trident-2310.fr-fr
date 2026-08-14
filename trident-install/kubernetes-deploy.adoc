@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: trident-get-started/kubernetes-deploy.html 
+permalink: trident-install/kubernetes-deploy.html 
 keywords: deploy, astra trident, methods, operator, tridentctl, helm, tanzu, vmware 
 summary: 'Vous pouvez installer Astra Trident à l"aide de l"opérateur Trident (manuellement ou à l"aide de Helm) ou à l"aide de `tridentctl`. Cette rubrique fournit des informations importantes pour sélectionner le processus d"installation qui vous convient.' 
 ---
@@ -16,6 +16,7 @@ Pour vérifier qu'Astra Trident peut être installé dans un grand nombre d'envi
 
 
 
+[[critical-information-about-astra-trident-23-10]]
 == Informations stratégiques sur Astra Trident 23.10
 
 *Vous devez lire les renseignements essentiels suivants sur Astra Trident.*
@@ -33,11 +34,12 @@ Utilisation d'une configuration sans chemins d'accès multiples ou de l'utilisat
 ====
 
 
+[[before-you-begin]]
 == Avant de commencer
 
 Quel que soit votre chemin d'installation, vous devez avoir :
 
-* Privilèges complets vers un cluster Kubernetes pris en charge exécutant une version prise en charge de Kubernetes et conditions requises pour les fonctionnalités activées. Vérifiez le link:requirements.html["de formation"] pour plus d'informations.
+* Accès complet à un cluster Kubernetes compatible, exécutant une version compatible de Kubernetes et dont les fonctionnalités requises sont activées. Consultez la link:../trident-get-started/requirements.html["de formation"] pour plus de détails.
 * Accès à un système de stockage NetApp pris en charge.
 * Capacité de monter des volumes à partir de tous les nœuds de travail Kubernetes.
 * Un hôte Linux avec `kubectl` (ou `oc`, Si vous utilisez OpenShift) installé et configuré pour gérer le cluster Kubernetes que vous souhaitez utiliser.
@@ -46,19 +48,21 @@ Quel que soit votre chemin d'installation, vous devez avoir :
 
 
 
-TIP: Si vous ne vous êtes pas familiarisé avec le link:../trident-concepts/intro.html["concepts de base"^], c'est le moment idéal pour le faire.
+TIP: Si vous ne vous êtes pas encore familiarisé avec le link:../trident-get-started/intro.html["concepts de base"^], c'est le moment idéal pour le faire.
 
 
 
+[[choose-your-installation-method]]
 == Choisissez votre méthode d'installation
 
-Sélectionnez la méthode d'installation qui vous convient. Vous devez également examiner les considérations à prendre en compte pour link:kubernetes-deploy.html#move-between-installation-methods["passage d'une méthode à l'autre"] avant de prendre votre décision.
+Choisissez la méthode d'installation qui vous convient. Vous devriez également examiner les considérations pour link:kubernetes-deploy.html#moving-between-installation-methods["passage d'une méthode à l'autre"] avant de prendre votre décision.
 
 
 
+[[using-the-trident-operator]]
 === Utilisation de l'opérateur Trident
 
-Que ce soit pour un déploiement manuel ou à l'aide de Helm, l'opérateur Trident est un excellent moyen de simplifier l'installation et de gérer dynamiquement les ressources Trident. Vous pouvez même link:../trident-get-started/kubernetes-customize-deploy.html["Personnalisez le déploiement de l'opérateur Trident"] utilisation des attributs dans `TridentOrchestrator` Ressource personnalisée (CR).
+Que ce soit par déploiement manuel ou via Helm, l’opérateur Trident est un excellent moyen de simplifier l’installation et de gérer dynamiquement les ressources Astra Trident. Vous pouvez même link:kubernetes-customize-deploy.html["Personnalisez le déploiement de l'opérateur Trident"] en utilisant les attributs de la  `TridentOrchestrator` ressource personnalisée (CR).
 
 L'utilisateur de Trident présente les avantages suivants :
 
@@ -118,11 +122,12 @@ NOTE: Si le cluster est mis à niveau vers une version non prise en charge, l'op
 .Gestion de clusters <strong>™ avec BlueXP (anciennement Cloud Manager)</strong>
 [%collapsible]
 ====
-Avec link:https://docs.netapp.com/us-en/cloud-manager-kubernetes/concept-kubernetes.html["Astra Trident avec BlueXP"^], Vous pouvez effectuer la mise à niveau vers la dernière version d'Astra Trident, ajouter et gérer des classes de stockage, les connecter aux environnements de travail et sauvegarder des volumes persistants à l'aide de Cloud Backup Service. BlueXP prend en charge le déploiement Astra Trident à l'aide de l'opérateur Trident, soit manuellement, soit via Helm.
+Avec Astra Trident utilisant NetApp Console, vous pouvez mettre à niveau vers la dernière version d'Astra Trident, ajouter et gérer des classes de stockage, les connecter à des environnements de travail et sauvegarder des volumes persistants à l'aide de Cloud Backup Service. BlueXP prend en charge le déploiement d'Astra Trident à l'aide de l'opérateur Trident, soit manuellement, soit avec Helm.
 
 ====
 
 
+[[using-tridentctl]]
 === À l'aide de `tridentctl`
 
 Si votre déploiement existant doit être mis à niveau ou si vous cherchez à le personnaliser hautement, il est à votre disposition . Il s'agit de la méthode classique de déploiement d'Astra Trident.
@@ -135,6 +140,7 @@ NOTE: Depuis la version 22.04, les clés AES ne sont plus régénérées à chaq
 
 
 
+[[choose-your-installation-mode]]
 == Choisissez votre mode d'installation
 
 Déterminez votre processus de déploiement en fonction du _mode d'installation_ (Standard, Offline ou Remote) requis par votre organisation.
@@ -174,6 +180,7 @@ Voici une présentation générale du processus d'installation à distance :
 ====
 
 
+[[select-the-process-based-on-your-method-and-mode]]
 == Sélectionnez le processus en fonction de votre méthode et de votre mode
 
 Après avoir pris vos décisions, sélectionnez le processus approprié.
@@ -203,6 +210,7 @@ link:kubernetes-deploy-tridentctl.html["Installation standard ou hors ligne"]
 |===
 
 
+[[moving-between-installation-methods]]
 == Passage d'une méthode d'installation à l'autre
 
 Vous pouvez décider de modifier votre méthode d'installation. Avant de procéder, prenez en compte les points suivants :
@@ -214,6 +222,7 @@ Vous pouvez décider de modifier votre méthode d'installation. Avant de procéd
 
 
 
+[[other-known-configuration-options]]
 == Autres options de configuration connues
 
 Lors de l'installation d'Astra Trident sur les produits de la gamme VMware Tanzu :
